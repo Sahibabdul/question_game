@@ -1,0 +1,46 @@
+package fragen_game;
+
+import java.util.Scanner;
+
+public class visualizer {
+
+	public static void main(String[] args) {
+		Window window=new Window("main", 500, 500);
+		Scanner scanner=new Scanner(System.in);
+		//Here you can enter your questions.
+		question[] questionar = {new question("question_asked1", "answer1", "answer2", "answer3", "answer4", "a"),
+		                         new question("question_asked2", "answer1", "answer2", "answer3", "answer4", "b")};
+		int question_atm=0;
+		String right_answer, input;
+		int right=0;
+		int wrong=0;
+		window.open();
+		while (question_atm<questionar.length) {
+			window.setColor(0, 0, 0);
+			window.fillRect(0, 0, window.getWidth(), window.getHeight());
+			window.setColor(255,255,255);
+			window.drawString(questionar[question_atm].question_asked, 10, 10);
+			window.drawString(questionar[question_atm].answer1, 10, 30);
+			window.drawString(questionar[question_atm].answer2, 10, 50);
+			window.drawString(questionar[question_atm].answer3, 10, 70);
+			window.drawString(questionar[question_atm].answer4, 10, 90);
+			right_answer=questionar[question_atm].right_answer;
+			System.out.println("Input your answer:");
+			window.refreshAndClear();
+			input=scanner.nextLine();
+			if (input.equals(right_answer)) {
+				right++;
+				question_atm++;
+			}else {
+				wrong++;
+				question_atm++;
+			}
+		}
+		System.out.println(right);
+		System.out.println(wrong);
+		scanner.close();
+		window.close();
+		
+	}
+
+}
