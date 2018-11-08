@@ -1,0 +1,17 @@
+package fragen_game;
+
+public class question {
+	String question_asked;
+	String answer1, answer2, answer3, answer4;
+	String right_answer;
+	
+	public question(String question_asked,String answer1,String answer2,String answer3,String answer4,String right_answer) {
+		this.question_asked=question_asked;
+		this.answer1=answer1;
+		this.answer2=answer2;
+		this.answer3=answer3;
+		this.answer4=answer4;
+		this.right_answer=right_answer;
+	}
+	
+}
